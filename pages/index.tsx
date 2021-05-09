@@ -15,14 +15,22 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({ allPostsData }) {
+interface HomeProps {
+  allPostsData: {
+    date: string;
+    title: string;
+    id: string;
+  }[];
+}
+
+export default function Home({ allPostsData }: HomeProps) {
   return (
-    <Layout home>
+    <Layout home={true}>
       <Head>
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>[Full Stack Web Developer]</p>
+        <p>Full Stack Web Developer</p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
